@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+application {
+    mainClassName="kino.Kinoverwaltung"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+}

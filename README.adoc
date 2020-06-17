@@ -1,0 +1,73 @@
+= Professionelle Softwareentwicklung: Pflichtabgabe 5
+:icons: font
+:icon-set: fa
+:source-highlighter: rouge
+:experimental:
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+== Abgabe
+
+Die Abgabe erfolgt, indem Sie Ihre Lösung in Ihr GitHub Repository pushen. Bitte überprüfen Sie über die GitHub Webseite, dass dies funktioniert hat.
+
+IMPORTANT: Die Frist für die Abgabe ist Freitag, der 19.6.2020 um 12:00 Uhr.
+
+== Kontext
+
+WARNING: Um die Aufgabe zu lösen, sollten Sie das Arbeitsblatt von Woche 9 bearbeitet haben. 
+
+Diese Pflichtaufgabe wird sich mit dem taktischen Design befassen. Dazu verwenden wir ein System zur Kinoverwaltung.
+
+Das Kinosystem wird von Angestellten des Kinos verwendet, nicht direkt von Endkunden. Das Kino ist ein typisches Multiplex Kino mit mehreren nummerierten Kinosälen. Die Bestuhlung in einem Kinosaal ist in Reihen aufgeteilt, die mit einzelnen Buchstaben gekennzeichnet sind. Innerhalb einer Reihe werden Sitze mit Zahlen bezeichnet. Beispiele für Sitze sind also zum Beispiel H-20 oder E-7. Die Anzahl der Reihen pro Saal sowie die Anzahl der Sitze pro Reihe unterscheidet sich. Das heißt, nicht jeder Saal hat die gleiche Anzahl von Reihen und nicht jede Reihe in einem Saal hat die gleiche Anzahl von Sitzen. Es kann auch passieren, dass einzelne Sitze für die Vergabe gesperrt werden, zum Beispiel um das Hygienekonzept für SARS-CoV-2 umzusetzen, oder auch weil sie defekt oder verdreckt sind. 
+
+In dem Kino gibt es mehrmals am Tag Vorführungen. Eine Vorführung findet in einem bestimmten Zeitslot in einem Saal statt. Pro Tag gibt es drei Zeitslots A, B und C pro Saal. Die Startuhrzeit wird für jeden Zeitslot und jeden Saal festgelegt und muss im System nicht beachtet werden. Eine Vorführung besteht also aus den folgenden Bestandteilen: Saal, Zeitslot und Film. Es kann sein, dass derselbe Film in gleichzeitig stattfindenden Zeitslots in unterschiedlichen Sälen vorgeführt wird. Es kann sein, dass die Zeitslots unterschiedliche Namen haben, da diese ja pro Saal festgelegt werden. Der Film könnte also zum Beispiel gleichzeitig in Saal 1, Zeitslot A und Saal 5 Zeitslot B stattfinden. Es kann auch sein, dass ein Film in Saal 2 und Saal 3 gezeigt wird, beide Male in Zeitslot B, aber sich die Uhrzeiten unterscheiden. 
+
+Kunden rufen im Kino an und möchten in einem bestimmten Zeitraum einen Film anschauen. Die Angestellten identifizieren manuell die infrage kommenden Vorstellungen. Sie brauchen diesen Teil nicht im System umzusetzen. Für die identifizierten Vorstellungen überprüfen die Angestellten, ob es verfügbare Plätze in ausreichender Zahl gibt. Die Plätze werden von den Angestellten vorbestellt. Ab dem Moment sind sie nicht mehr verfügbar für andere Angestellte. Die Kunden können nun die Auswahl bestätigen oder ablehnen. Bei Ablehnung werden die Plätze wieder als verfügbar gekennzeichnet, bei Bestätigung werden die Plätze als reserviert markiert. Die Angestellten holen sich Name und Mailadresse der Kunden. Das System erzeugt eine Reservierungsnummer und verschickt diese per Mail an die Kunden. Mit dieser Reservierungsnummer können die Kunden später die Vorstellung besuchen. 
+
+
+== Aufgabe
+
+Implementieren Sie das System mithilfe von taktischem Design in Java. Sie brauchen keine Benutzerschnittstelle implementieren. Es reicht, wenn Sie demonstrieren, dass Sie einige Reservierungen in einer `main`-Methode vornehmen können. Dabei sollte auf jeden Fall demonstriert werden, dass das System auch für zwei Angestellte funktioniert, die gleichzeitig versuchen Reservierungen für eine Vorstellung vorzunehmen. 
+
+Bei der Bewertung der Aufgabe kommt es uns besonders darauf an, dass Sie demonstrieren, dass Sie die Konzepte (Entitäten, Werte, Aggregate, …) aus dem taktischen Design verstanden haben und anwenden können. Sie sollen auch zeigen, dass Sie die Benennungen aller Bestandteile sinnvoll wählen können. Achten Sie hier ganz besonders auch auf die Verwendung der Ubiquitous Language. 
+
+Ihre Anwendung muss natürlich keine echten Mails für die Reservierung verschicken, stattdessen können Sie einfach Mailadresse und Reservierungsnummer auf die Standardausgabe schreiben. Außerdem können Sie Ihre Repositories mithilfe einer `HashMap` implementieren. Sie müssen die Daten nicht in einer Datenbank persistieren. 
+
+Sie können das System mit Dummy Daten füttern (Säle, Reihen, Plätze, Zeitslots, Filme, …). Sie brauchen es nicht übertreiben und realistisch große Kinos verwenden, es sollten aber schon immer auch mehrere Datensätze sein. 
+
+Wenn Sie auf Unklarheiten stoßen, können Sie Annahmen treffen und diese dann begründen. In der Praxis würden Sie solche Unklarheiten immer mit einem Domänenexperten diskutieren um nicht am Nutzer vorbeizuentwickeln! 
+
+=== Dokumentation
+
+Dokumentieren Sie Ihre Annahmen in der Datei link:DOKUMENTATION.adoc[`DOKUMENTATION.adoc`]. Dort sollten Sie möglichst auch grob festhalten, was Ihr Gedankengang bei der Entwicklung war. Wir empfehlen dort auch ein Glossar zu schreiben, also eine Liste von Begriffen und deren Bedeutung. Verwenden Sie das Glossar um sicherzustellen, dass Namen konsistent verwendet werden. 
+
+// =============================================================================== 
+
+== Hinweise zur Abgabe
+
+Der folgende Text stand in den vorhergehenden Abgaben oben und gilt auch weiterhin.
+
+=== Strukturierung von Textabgaben
+
+Sie sollten Ihre schriftlichen Ausarbeitungen, soweit verlangt, als https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc] formatieren. Die READMEs, die Sie in Ihren bisherigen Projekten finden konnten, sind auch allesamt mit AsciiDoc formatiert und daran können Sie sich orientieren. Github rendert AsciiDoc zu einer schönen Seite zusammen. AsciiDoc-Dateien erkennt man meistens an der Dateiendung `.adoc`.
+
+AsciiDoc ist eine Markup-Formatierungssprache, die in reiner Textform mit jedem Editor geschrieben werden kann. Dafür sind prinzipiell keine Tools notwendig. Sie können aber dennoch ein paar Tools / Plugins in Ihre Editoren installieren, damit Sie ein wenig farbliche / technische Unterstützung beim Schreiben erhalten können. Für viele Editoren gibt es Plugins (https://marketplace.visualstudio.com/items?itemName=joaompinto.asciidoctor-vscode[VS Code / VS Codium], https://marketplace.eclipse.org/content/asciidoctor-editor[für Eclipse], https://plugins.jetbrains.com/plugin/7391-asciidoc[IntelliJ], uvm.). Nutzen Sie was Ihnen am Besten gefällt.
+
+==== Videos
+
+Es gibt viele Anleitungen zur Verwendung AsciiDoc. Hier sind ein paar Ideen:
+
+* Vor ein paar Jahren hat Jens einen Screencast erstellt. Die ersten Minuten sind aufschlussreich für die generelle Verwendung von AsciiDoc. Von uns verwendet aber niemand mehr den Editor Atom, weshalb die Hinweise zu den Plugins nicht mehr so hilfreich sind: https://www.youtube.com/watch?v=w9ZE-K5XBvc. Atom wurde von vielen EntwicklerInnen durch den Editor https://code.visualstudio.com/[VS Code] oder der freien Variante https://vscodium.com/[VS Codium] abgelöst.
+* Diverse Screencasts finden sich auf Youtube. Die ersten Minuten dieses Talks geben auch einen guten Einblick: https://www.youtube.com/watch?v=MyhiD65qaUI
+
+
+=== Rechtschreibung
+
+Sie müssen sich an geltende Rechtschreibregeln halten. Sind Ihre schriftliche Abgaben nicht leserlich oder verständlich geschrieben, können wir diese Abgaben nicht als bestanden werten. Bitte achten Sie selbst also auf eine korrekte Orthographie und Grammatik.
+
+Die Abgaben dürfen entweder in _deutscher_ oder _englischer_ Sprache verfasst werden.
